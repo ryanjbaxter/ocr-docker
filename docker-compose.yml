@@ -1,0 +1,46 @@
+web:
+  image: ryanjbaxter/ocr-web
+  ports:
+    - "8080:8080"
+  environment:
+    - SPRING_PROFILES_ACTIVE=docker
+  links:
+    - eureka
+    - participants
+    - races
+
+races:
+  image: ryanjbaxter/ocr-races
+  ports:
+    - "8282:8282"
+  environment:
+    - SPRING_PROFILES_ACTIVE=docker
+  links:
+    - eureka
+    - participants
+
+participants:
+  image: ryanjbaxter/ocr-participants
+  ports:
+    - "8181:8181"
+  environment:
+    - SPRING_PROFILES_ACTIVE=docker
+  links:
+    - eureka
+
+hystrix:
+  image: ryanjbaxter/ocr-hystrix-dashboard
+  ports:
+    - "8383:8383"
+  environment:
+    - SPRING_PROFILES_ACTIVE=docker
+  links:
+    - eureka
+    - races
+    - participants
+    - web
+
+eureka:
+  image: ryanjbaxter/ocr-eureka
+  ports:
+    - "8761:8761"
