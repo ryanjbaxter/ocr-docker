@@ -35,5 +35,5 @@ Servers web content.  Runs on port `8080`.
 ### [OCR Hystrix Dashboard](https://github.com/ryanjbaxter/ocr-hystrix-dashboard/)
 Serves the Hystrix Dashbaord to monitor circuit breakers.  Runs on port `8383`.
 
-### [Zipkin](https://github.com/ryanjbaxter/ocr-zipkin/)
+### [OCR Zipkin](https://github.com/ryanjbaxter/ocr-zipkin/)
 Zipkin server to aggregate tracing information.  Runs on port `9411`.
