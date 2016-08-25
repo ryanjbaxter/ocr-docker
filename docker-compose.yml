@@ -8,6 +8,7 @@ web:
     - eureka
     - participants
     - races
+    - zipkin
 
 races:
   image: ryanjbaxter/ocr-races
@@ -18,6 +19,7 @@ races:
   links:
     - eureka
     - participants
+    - zipkin
 
 participants:
   image: ryanjbaxter/ocr-participants
@@ -27,6 +29,7 @@ participants:
     - SPRING_PROFILES_ACTIVE=docker
   links:
     - eureka
+    - zipkin
 
 hystrix:
   image: ryanjbaxter/ocr-hystrix-dashboard
@@ -39,6 +42,13 @@ hystrix:
     - races
     - participants
     - web
+
+zipkin:
+  image: ryanjbaxter/ocr-zipkin
+  ports:
+    - "9411:9411"
+  environment:
+    - SPRING_PROFILES_ACTIVE=docker
 
 eureka:
   image: ryanjbaxter/ocr-eureka
