@@ -37,3 +37,6 @@ Serves the Hystrix Dashbaord to monitor circuit breakers.  Runs on port `8383`.
 
 ### [OCR Zipkin](https://github.com/ryanjbaxter/ocr-zipkin/)
 Zipkin server to aggregate tracing information.  Runs on port `9411`.
+
+### [OCR Config Server](https://github.com/ryanjbaxter/ocr-config-server/)
+Configuration server.  Runs on port `8888`.

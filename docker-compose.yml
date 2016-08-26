@@ -9,6 +9,7 @@ web:
     - participants
     - races
     - zipkin
+    - config
 
 races:
   image: ryanjbaxter/ocr-races
@@ -20,6 +21,7 @@ races:
     - eureka
     - participants
     - zipkin
+    - config
 
 participants:
   image: ryanjbaxter/ocr-participants
@@ -30,6 +32,7 @@ participants:
   links:
     - eureka
     - zipkin
+    - config
 
 hystrix:
   image: ryanjbaxter/ocr-hystrix-dashboard
@@ -42,6 +45,7 @@ hystrix:
     - races
     - participants
     - web
+    - config
 
 zipkin:
   image: ryanjbaxter/ocr-zipkin
@@ -49,8 +53,17 @@ zipkin:
     - "9411:9411"
   environment:
     - SPRING_PROFILES_ACTIVE=docker
+  links:
+    - config
 
 eureka:
   image: ryanjbaxter/ocr-eureka
   ports:
     - "8761:8761"
+  links:
+    - config
+
+config:
+  image: ryanjbaxter/ocr-config-server
+  ports:
+    - "8888:8888"
